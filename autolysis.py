@@ -146,6 +146,11 @@ class DataAnalyzer:
         numeric_cols = self.df.select_dtypes(include=['int64', 'float64']).columns
         if numeric_cols.empty:
             return "No numeric columns for clustering analysis."
+
+        # Impute missing values before clustering
+        imputer = SimpleImputer(strategy='mean')
+        self.df[numeric_cols] = imputer.fit_transform(self.df[numeric_cols])
+
         X = self.df[numeric_cols]
         scaler = StandardScaler()
         X_scaled = scaler.fit_transform(X)
@@ -208,13 +213,15 @@ The implications of your findings (i.e. what to do with the insights)
 
             if response.status_code == 200:
                 result = response.json().get("choices", [{}])[0].get("message", {}).get("content", "No response content.")
-                with open(foldername + 'README.md', 'w') as file:
+                with open(f"{foldername}/README.md", "w") as file:
                     file.write(result)
+                print(f"Generated narrative saved to {foldername}/README.md")
                 return result
             else:
-                return f"Failed to generate narrative. HTTP Status: {response.status_code}, Response: {response.text}"
+                raise Exception(f"Error in generating narrative: {response.status_code}")
         except Exception as e:
-            return f"Narrative generation failed: {str(e)}"
+            print(f"Error generating narrative: {e}")
+            return str(e)
 
     def visualize_insights(self, analysis_results, foldername):
         """
