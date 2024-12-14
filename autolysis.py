@@ -278,7 +278,7 @@ def main(csv_path):
         print("Data Loaded Successfully")
 
 
-        foldername = csv_path.split(".csv")[0] + "/"
+        foldername = csv_path + "/"
         if not os.path.exists(foldername):
             os.makedirs(foldername)
 
