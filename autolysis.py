@@ -238,6 +238,7 @@ Create a good readme file with proper formatting
 
         mask = np.triu(np.ones_like(corr_matrix, dtype=bool))
 
+        fig = plt.figure(figsize=(5.12, 5.12), dpi=100)
         sns.heatmap(corr_matrix,
                     mask=mask,
                     annot=True,
@@ -250,11 +251,11 @@ Create a good readme file with proper formatting
 
         plt.title('Correlation Heatmap', fontsize=16, pad=20)
         plt.tight_layout()
-        plt.savefig(foldername + 'correlation_heatmap.png', dpi=300, bbox_inches='tight')
+        plt.savefig(foldername + 'correlation_heatmap.png', dpi=100, bbox_inches='tight')
         plt.close()
 
         # 2. Outlier Box Plot
-        plt.figure(figsize=(15, 8))
+        plt.figure(figsize=(5.12, 5.12), dpi=100)
         numeric_cols = self.df.select_dtypes(include=['int64', 'float64']).columns
         box_plot = self.df[numeric_cols].boxplot(rot=90)
 
@@ -262,7 +263,7 @@ Create a good readme file with proper formatting
         plt.xlabel('Columns', fontsize=12)
         plt.ylabel('Values', fontsize=12)
         plt.tight_layout()
-        plt.savefig(foldername + 'outlier_box_plot.png', dpi=300, bbox_inches='tight')
+        plt.savefig(foldername + 'outlier_box_plot.png', bbox_inches='tight')
         plt.close()
 
         return {
