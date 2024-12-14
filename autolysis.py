@@ -251,7 +251,7 @@ Create a good readme file with proper formatting
 
         plt.title('Correlation Heatmap', fontsize=16, pad=20)
         plt.tight_layout()
-        plt.savefig(foldername + 'correlation_heatmap.png', dpi=100, bbox_inches='tight')
+        plt.savefig(foldername + 'correlation_heatmap.PNG', dpi=100, bbox_inches='tight')
         plt.close()
 
         # 2. Outlier Box Plot
@@ -263,12 +263,12 @@ Create a good readme file with proper formatting
         plt.xlabel('Columns', fontsize=12)
         plt.ylabel('Values', fontsize=12)
         plt.tight_layout()
-        plt.savefig(foldername + 'outlier_box_plot.png', bbox_inches='tight')
+        plt.savefig(foldername + 'outlier_box_plot.PNG', bbox_inches='tight')
         plt.close()
 
         return {
-            'correlation_heatmap': 'correlation_heatmap.png',
-            'outlier_box_plot': 'outlier_box_plot.png'
+            'correlation_heatmap': 'correlation_heatmap.PNG',
+            'outlier_box_plot': 'outlier_box_plot.PNG'
         }
 
 def main(csv_path):
