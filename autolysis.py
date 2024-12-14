@@ -278,9 +278,9 @@ def main(csv_path):
         print("Data Loaded Successfully")
 
 
-        foldername = "eval/" + csv_path + "/"
-        if not os.path.exists(foldername):
-            os.makedirs(foldername)
+        foldername = csv_path + "/"
+        # if not os.path.exists(foldername):
+            # os.makedirs(foldername)
 
 
         analyzer = DataAnalyzer(data_loader.df)
