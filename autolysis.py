@@ -279,8 +279,9 @@ def main(csv_path):
 
 
         foldername = os.path.join(os.getcwd() , csv_path + "/")
-        if not os.path.exists(foldername):
-            os.makedirs(foldername)
+        print(foldername)
+        # if not os.path.exists(foldername):
+        #     os.makedirs(foldername)
 
 
         analyzer = DataAnalyzer(data_loader.df)
