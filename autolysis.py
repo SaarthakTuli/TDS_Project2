@@ -278,10 +278,9 @@ def main(csv_path):
         print("Data Loaded Successfully")
 
 
-        foldername = os.path.join(os.getcwd() , csv_path + "/").replace("datasets", "eval/SaarthakTuli-TDS_Project2")
-        print(foldername)
-        # if not os.path.exists(foldername):
-        #     os.makedirs(foldername)
+        foldername = os.path.join(os.getcwd() , csv_path + "/")
+        if not os.path.exists(foldername):
+            os.makedirs(foldername)
 
 
         analyzer = DataAnalyzer(data_loader.df)
